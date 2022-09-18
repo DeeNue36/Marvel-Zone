@@ -1,42 +1,42 @@
 import 'react-native-gesture-handler';
 import React from 'react';
+import { View, Image, StyleSheet, ImageBackground } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import {createAppContainer } from 'react-navigation';
 import { NavigationContainer } from '@react-navigation/native';
 import HomeNavigation from './homeNavigation';
 import AboutNavigation from './aboutNavigation';
+import Header from '../sharedComponents/Header';
 
+ 
 const Drawer = createDrawerNavigator();
-//     Home: { 
-//         screen: HomeNavigation,
-//     },
-//     About: {
-//         screen: AboutNavigation,
-//     }
-
-// });
-
-// export default createAppContainer(Drawer);
 
 export default function MyDrawer() {  
+
     return (
-        <NavigationContainer >
-            <Drawer.Navigator 
+        <NavigationContainer independent={true}>
+            <Drawer.Navigator id='Drawer' 
                 screenOptions={{
-                    headerTitle: 'MarvelZone',
-                    headerStyle: { backgroundColor: 'red'},
+                    headerStyle: { backgroundColor: '#F83A53'},
                     headerTintColor: '#fff',
                     headerTitleStyle: {
                       fontWeight: 'bold',
                     },
                     height: 60,
+                    
                 }}
             >
-                <Drawer.Screen name="Home" component={HomeNavigation} />
                 <Drawer.Screen 
-                name="About" 
-                component={AboutNavigation} 
-                options={{ headerTitle: 'About MarvelZone'}}
+                    name="Home" 
+                    component={ HomeNavigation } 
+                    options={{
+                        headerTitle: () =>
+                         <Header title='MarvelZone' />,
+                    }}
+                />
+                <Drawer.Screen 
+                    name="About" 
+                    component={ AboutNavigation } 
+                    options={{ headerTitle: () => <Header title='About MarvelZone'/>}}
                 />
             </Drawer.Navigator>
         </NavigationContainer>
@@ -51,31 +51,6 @@ export default function MyDrawer() {
 
 
 
-// // import 'react-native-gesture-handler';
-// // import React from 'react';
-// // import { NavigationContainer } from '@react-navigation/native';
-// // import { createNativeStackNavigator } from '@react-navigation/native-stack';
-// // import { createDrawerNavigator } from "react-navigation-drawer";
-// // // import { NavigationContainer } from '@react-navigation/native';
-// // import Home from '../Screens/Home';
-// // import ReviewDetails from "../Screens/reviewDetails";
 
 
-// // const Drawer = createDrawerNavigator();
 
-// // function App() {
-// //     return(
-// //         <Drawer.Navigator>
-// //             <Drawer.Screen name="Home" component={Home}/>
-// //             <Drawer.Screen name="Review Details" component={ReviewDetails}/>
-// //             <Drawer.Screen/>
-// //         </Drawer.Navigator>
-// //     )
-// // }
-
-// // const DrawerNavigator = createDrawerNavigator({
-// //     return(
-// //         <Drawer.Navigator><
-// //     )
-
-// // })
