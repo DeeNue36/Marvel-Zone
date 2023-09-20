@@ -7,6 +7,7 @@ import AddReviews from './addReviews';
 
 export default function Home({navigation}) {
   const [modalOpen, setModalOpen] = useState(false);
+  
   const[myReviews,setMyReviews] = useState([
     { title: 'WandaVision', rating: 5, body: 'WandaVision is crazy', key: '1' },
     { title: 'Hawkeye', rating: 3, body: 'Hawkeye is action-packed', key: '2' },
